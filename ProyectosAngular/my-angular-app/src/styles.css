@@ -1,5 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+.contenedor {
+    gap: 10px;
+    display: grid;
+    grid-template-rows: repeat(3);
+}
 
 .logo img {
     width: 150px;
@@ -35,16 +40,16 @@
     align-items: center;
 }
 
-a {
+.menu a {
     color:#fff;
     text-decoration: none;
 }
-a:visited { 
+.menu a:visited { 
     color: #ffffff; 
     text-decoration: none;
 }
 
-a:hover {
+.menu a:hover {
 color: #ffffff;
 text-decoration: none;
 font-size: 18px;
@@ -59,51 +64,104 @@ select {
     font-size: 15px;
 }
 
-
-/* @import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
-
-th {
-   background-color: #000000;
-   font-size: 1.5rem;
-   color: #ffffff; 
-} */
-/* nth-child es un selector de css */
-/* tr:nth-child(1), tr:nth-child(3) {
-    background-color: #bec1c3;
-    color: #000000;
-    font-size: 1.5rem;
-} */
-/* tr:nth-child(2){
-    background-color: #045795;
-    color: #ffffff;
-    font-size: 1.5rem;
-} */
-
-/* h2 {
-    color: #ff4900;
-    font-size: 2rem;
-} */
-
-/* p.primero {
-    font-size: 1rem;
-    color: #0093FF;
-    font-family: Arial;
-} */
-
-/* p.segundo {
-    font-size: 12px;
-    color: #c500ff;
-    font-family: 'Nerko One',cursive;
-} */
-/* a {
-    color: #001bff;
-    font-style: bold;
-    text-decoration: none;
+.side-bar {
+    width: 500px;
+    height: 480px;
+    background-color: #EB3300;
+    border-radius: 10px;
+    box-shadow: 20px 12px 14px rgb(226, 226, 226);
+    color: #fff;
+    font-family: "Open Sans";
+    padding: 20px;
+}
+.TipoCasco { 
+    text-align: right;
+}
+.precio {
+    text-align: right;
+}
+.main {
+    grid-template-columns: repeat(2,1fr);
+    display: grid;
+}
+.content {
+    width: 480px;
+    height: 480px;
+}
+.content img {
+    width: 100%;
+    height: auto;
+}
+.side-bar th, td {
+    border-bottom: 1px solid #fff;
+}
+.side-bar th{
+    height: 50px;
+}
+.TablaTamanios{
+    width: 100%;
+    justify-content: center;
+}
+.fila{
+    text-align: center;
+}
+.descripcionCasco{
+    text-align: justify;
+}
+.footer {
+    height: 110px;
+    background-color: #000;
+    grid-template-columns: repeat(5,1fr);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 90px;
+}
+.footer-Img img{
+    width: 100px;
+    height: auto;
 }
 
-a:visited { color: #4CAF50; } */
+.Titulo {
+    color: #ff4900;
+    font-size: 2rem;
+}
+.Parrafo1 {
+    font-size: 16px;
+    color: #0093FF;
+    font-family: Arial;
+}
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+.Parrafo2 {
+    font-size: 12px;
+    color: c500ff;
+    font-family: "Nerko One";
+}
+.link {
+    text-decoration: none;
+    color:#001bff;
+    font-weight:bold;
+}
+.link:visited{color:#4CAF50;}
 
-/* a:hover {
-    color: #ff6600;
-    text-decoration: underline
-} */
+.link:hover{
+    color:#ff6600;
+    text-decoration: underline;
+}
+
+.table1 th {
+    background-color: #000000;
+    color:#ffffff;
+    font-size: 1.5rem;
+}
+
+.table1 tr:nth-child(2), .table1 tr:nth-child(4) {
+    background-color: #bec1c3;
+    color: #000;
+    font-size: 1.5rem;
+}
+.table1 tr:nth-child(3) {
+    background-color: #045795;
+    font-size: 1.5rem;
+    color:#fff;
+}
