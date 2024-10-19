@@ -1,0 +1,14 @@
+<form [formGroup]="loginForm">
+    <div class= 'p-card flex justify-content-center'>
+        <p-card header="Login" [style]="{width:'360px'}"> 
+            <div class="field">
+                <input type="text"
+                class="x-full" 
+                pInputText
+                formControlName="usuario"
+                name="usuario"
+                placeholder="Nombre de usuario">
+            </div>
+        </p-card>
+    </div>
+</form>
