@@ -1,30 +1,54 @@
 <!-- Titulo -->
 <h1>Formulario de Solicitud de Vacaciones</h1>
-<!-- Nombre -->
-<p><b>Nombre</b></p>
-<p class="subtitle">Descripción</p>
-<div class="formgrid grid gap-2">
-    <div class="field col">   
-        <input pInputText type="text" id="firstName" placeholder="Primer Nombre" class="w-full">
+<form [formGroup]="otherForm" (ngSubmit)="onSubmit()">
+    <div class="p-field"> <!-- Nombre -->
+        <p><b>Nombre</b></p>
+        <p class="subtitle">Descripción</p>
+        <div class="formgrid grid gap-2">
+            <div class="field col">   
+                <input pInputText type="text" id="firstName" formControlName="firstName" placeholder="Primer Nombre" class="w-full">
+                <div class="error" *ngIf="otherForm.controls['firstName'].invalid && otherForm.controls['firstName'].touched">
+                    El nombre es requerido
+                </div>
+            </div>
+            <div class="field col">
+                <input pInputText type="text" id="lastName" formControlName="lastName" placeholder="Apellido" class="w-full">
+                <div class="error" *ngIf="otherForm.controls['lastName'].invalid && otherForm.controls['lastName'].touched">
+                    El apellido es requerido
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="field col">
-        <input pInputText type="text" id="lastName" placeholder="Apellido" class="w-full">
+
+    <div class="p-field"> <!-- Correo -->
+        <p for="email"><b>Correo electrónico</b></p>
+        <p class="subtitle">Descripción</p>
+        <p-inputGroup>
+            <p-inputGroupAddon><i class="pi pi-envelope"></i></p-inputGroupAddon>
+            <input pInputText type="text" formControlName="email" id="email" class="w-full">
+        </p-inputGroup>
+        <div class="error" *ngIf="otherForm.controls['email'].invalid && otherForm.controls['email'].touched" >
+            El email es requerido
+        </div>
     </div>
-</div>
-<!-- Correo -->
-<p><b>Correo electrónico</b></p>
-<p class="subtitle">Descripción</p>
-<p-inputGroup>
-    <p-inputGroupAddon><i class="pi pi-envelope"></i></p-inputGroupAddon>
-    <input pInputText type="text" class="w-full">
-</p-inputGroup>
-<!-- Telefono -->
-<p><b>Telefono</b></p>
-<p class="subtitle">Descripción</p>
-<p-inputGroup>
-    <p-inputGroupAddon><i class="pi pi-phone"></i></p-inputGroupAddon>
-    <input pInputText type="text" class="w-full">
-</p-inputGroup>
+
+    <div class="p-field"> <!-- Telefono -->
+        <p for="phone"><b>Telefono</b></p>
+        <p class="subtitle">Descripción</p>
+        <p-inputGroup>
+            <p-inputGroupAddon><i class="pi pi-phone"></i></p-inputGroupAddon>
+            <input pInputText type="text" id="phone" formControlName="phone" class="w-full">
+        </p-inputGroup>
+        <div class="error" *ngIf="otherForm.controls['phone'].invalid && otherForm.controls['phone'].touched">
+            El telefono es requerido
+        </div>
+    </div>
+</form>
+
+
+
+
+
 
 
 

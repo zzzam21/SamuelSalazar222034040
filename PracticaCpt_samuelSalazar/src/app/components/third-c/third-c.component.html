@@ -1,1 +1,51 @@
-<!-- Quill para el editor de texto -->
+<form [formGroup]="otherForm" (ngSubmit)="onSubmit()">
+    <div class="p-field"> 
+        <label for="textEdit"><b>Detalles de la licencia</b></label>
+        <div class="card">
+            <p-editor id="textEdit" formControlName="textEdit" [style]="{ height: '320px' }">
+                <ng-template pTemplate="header">
+                    <span class="ql-formats">
+                        <button type="button" class="ql-bold" aria-label="Bold"></button>
+                        <button type="button" class="ql-italic" aria-label="Italic"></button>
+                        <button type="button" class="ql-underline" aria-label="Underline"></button>
+                        <button type="button" class="ql-link" aria-label="Link"></button>
+                        <button type="button" class="ql-list" value="ordered" aria-label="Ordered List"></button>
+                        <button type="button" class="ql-list" value="bullet" aria-label="Bullet List"></button>
+                        <select class="ql-size" aria-label="Size" style="width: 80px;">
+                            <option value="small">Pequeño</option>
+                            <option selected>Normal</option>
+                            <option value="large">Grande    </option>
+                        </select>
+                        <button type="button" class="ql-image" aria-label="Image"></button>
+                    </span>
+                </ng-template>
+            </p-editor>
+        </div>
+        <div class="error" *ngIf="otherForm.controls['textEdit'].invalid && otherForm.controls['textEdit'].touched">
+            Detalles de la licencia necesarios
+        </div>
+    </div>
+
+    <div class="p-field"> <!-- Fecha de inicio -->
+        <label for="beginDate"><b>Fecha de inicio</b></label>
+        <p class="subtitle" >Descripción</p>
+        <p-calendar [style]="{width:'100%'}" [showIcon]="true" [iconDisplay]="'input'"  formControlName="beginDate"/>
+        <div class="error" *ngIf="otherForm.controls['beginDate'].invalid && otherForm.controls['beginDate'].touched">
+            Fecha de inicio necesaria
+        </div>
+    </div>
+
+    <div class="p-field"> <!-- Fecha de finalización -->
+        <label for="endDate"><b>Fecha de finalización</b></label>
+        <p class="subtitle" >Descripción</p>
+        <p-calendar [style]="{width:'100%'}" [showIcon]="true" [iconDisplay]="'input'"  formControlName="endDate"/>
+        <div class="error" *ngIf="otherForm.controls['endDate'].invalid && otherForm.controls['endDate'].touched">
+            Fecha de finalización necesaria
+        </div>
+    </div>
+</form>
+
+
+
+
+

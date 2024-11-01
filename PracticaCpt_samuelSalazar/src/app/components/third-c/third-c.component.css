@@ -1,0 +1,11 @@
+.subtitle {
+    font-size:small;
+    font-style:italic;
+    color: gray;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
