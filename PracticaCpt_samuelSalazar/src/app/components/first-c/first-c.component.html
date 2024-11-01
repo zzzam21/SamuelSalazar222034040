@@ -1,6 +1,6 @@
 <!-- Titulo -->
 <h1>Formulario de Solicitud de Vacaciones</h1>
-<form [formGroup]="otherForm" (ngSubmit)="onSubmit()">
+<div [formGroup]="otherForm">
     <div class="p-field"> <!-- Nombre -->
         <p><b>Nombre</b></p>
         <p class="subtitle">Descripción</p>
@@ -21,7 +21,7 @@
     </div>
 
     <div class="p-field"> <!-- Correo -->
-        <p for="email"><b>Correo electrónico</b></p>
+        <label for="email"><b>Correo electrónico</b></label>
         <p class="subtitle">Descripción</p>
         <p-inputGroup>
             <p-inputGroupAddon><i class="pi pi-envelope"></i></p-inputGroupAddon>
@@ -33,7 +33,7 @@
     </div>
 
     <div class="p-field"> <!-- Telefono -->
-        <p for="phone"><b>Telefono</b></p>
+        <label for="phone"><b>Telefono</b></label>
         <p class="subtitle">Descripción</p>
         <p-inputGroup>
             <p-inputGroupAddon><i class="pi pi-phone"></i></p-inputGroupAddon>
@@ -43,7 +43,7 @@
             El telefono es requerido
         </div>
     </div>
-</form>
+</div>
 
 
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { InputGroupModule } from 'primeng/inputgroup';
@@ -13,21 +13,21 @@ import { InputTextModule } from 'primeng/inputtext';
   styleUrl: './second-c.component.css'
 })
 export class SecondCComponent {
-  otherForm: FormGroup;
+  @Input() otherForm!: FormGroup;
 
-  constructor(private fb: FormBuilder){
-    this.otherForm = this.fb.group(
-      {
-        directName: ['',Validators.required],
-        directEmail: ['',[Validators.required, Validators.email]]
-      }
-    )
-  };
-  onSubmit (){
-    if (this.otherForm.valid){
-      console.log(this.otherForm.value);
-    }else{
-      console.log('Formulario no valido!');
-    }
-  }
+  // constructor(private fb: FormBuilder){
+  //   this.otherForm = this.fb.group(
+  //     {
+  //       directName: ['',Validators.required],
+  //       directEmail: ['',[Validators.required, Validators.email]]
+  //     }
+  //   )
+  // };
+  // onSubmit (){
+  //   if (this.otherForm.valid){
+  //     console.log(this.otherForm.value);
+  //   }else{
+  //     console.log('Formulario no valido!');
+  //   }
+  // }
 }

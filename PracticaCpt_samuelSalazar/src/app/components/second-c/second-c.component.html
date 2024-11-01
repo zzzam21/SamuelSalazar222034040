@@ -1,7 +1,7 @@
 
-<form [formGroup]="otherForm" (ngSubmit)="onSubmit()">
+<div [formGroup]="otherForm">
     <div class="p-field"> <!-- director name -->
-        <p for="directName"><b>El nombre del gerente</b></p>
+        <label for="directName"><b>El nombre del gerente</b></label>
         <p class="subtitle">Descripción</p>
         <p-inputGroup>
             <p-inputGroupAddon><i style="font-family:'Times New Roman', Times, serif; font-style: normal;">T</i></p-inputGroupAddon>
@@ -13,7 +13,7 @@
     </div>
 
     <div class="p-field"> <!-- director email -->
-        <p for="directEmail"><b>Correo electrónico del gerente</b></p>
+        <label for="directEmail"><b>Correo electrónico del gerente</b></label>
         <p class="subtitle">Descripción</p>
         <p-inputGroup>
             <p-inputGroupAddon><i class="pi pi-envelope"></i></p-inputGroupAddon>
@@ -23,4 +23,4 @@
             EL correo electrónico del gerente es necesario
         </div>
     </div>
-</form>
+</div>

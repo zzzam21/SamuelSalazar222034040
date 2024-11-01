@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CalendarModule } from 'primeng/calendar';
 import { EditorModule } from 'primeng/editor';
@@ -14,23 +14,23 @@ import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
   styleUrl: './third-c.component.css'
 })
 export class ThirdCComponent {
-  otherForm: FormGroup;
+  @Input() otherForm!: FormGroup;
 
-  constructor(private fb: FormBuilder){
-    this.otherForm = this.fb.group(
-      {
-        textEdit : ['',Validators.required],
-        beginDate : ['',Validators.required],
-        endDate : ['',Validators.required]
-      }
-    )
-  };
+  // constructor(private fb: FormBuilder){
+  //   this.otherForm = this.fb.group(
+  //     {
+  //       textEdit : ['',Validators.required],
+  //       beginDate : ['',Validators.required],
+  //       endDate : ['',Validators.required]
+  //     }
+  //   )
+  // };
   
-  onSubmit(){
-    if (this.otherForm.valid){
-      console.log(this.otherForm.value);
-    }else{
-      console.log('Formulario no valido');
-    }
-  }
+  // onSubmit(){
+  //   if (this.otherForm.valid){
+  //     console.log(this.otherForm.value);
+  //   }else{
+  //     console.log('Formulario no valido');
+  //   }
+  // }
 }

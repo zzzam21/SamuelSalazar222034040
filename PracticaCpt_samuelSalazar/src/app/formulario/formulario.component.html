@@ -1,6 +1,6 @@
-<form>
-    <app-first-c></app-first-c>
-    <app-second-c></app-second-c>
-    <app-third-c></app-third-c>    
-    <button type="submit" label="Enviar" pButton style="width: 100%;text-align:center;"></button>
+<form [formGroup]="otherForm" (ngSubmit)="onSubmit()">
+    <app-first-c [otherForm]="otherForm"></app-first-c>
+    <app-second-c [otherForm]="otherForm"></app-second-c>
+    <app-third-c [otherForm]="otherForm"></app-third-c>
+    <button type="submit" [disabled]="otherForm.invalid" label="Enviar" pButton style="width: 100%;"></button>
 </form>

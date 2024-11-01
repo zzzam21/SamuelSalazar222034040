@@ -1,8 +1,8 @@
-<form [formGroup]="otherForm" (ngSubmit)="onSubmit()">
+<div [formGroup]="otherForm">
     <div class="p-field"> 
         <label for="textEdit"><b>Detalles de la licencia</b></label>
         <div class="card">
-            <p-editor id="textEdit" formControlName="textEdit" [style]="{ height: '320px' }">
+            <p-editor id="textEdit" formControlName="textEdit" [style]="{ height: '320px' , 'max-width':'590px'}">
                 <ng-template pTemplate="header">
                     <span class="ql-formats">
                         <button type="button" class="ql-bold" aria-label="Bold"></button>
@@ -43,7 +43,7 @@
             Fecha de finalización necesaria
         </div>
     </div>
-</form>
+</div>
 
 
 
