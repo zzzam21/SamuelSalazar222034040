@@ -1,6 +1,6 @@
 namespace API_Front
 {
-  public class User
+  public class Users
   {
     //Definir las propiedades desde el front-end
     public string username { get; set; }

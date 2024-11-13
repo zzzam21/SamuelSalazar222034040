@@ -1,4 +1,3 @@
-
 import { CommonModule } from '@angular/common';
 import {  HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
@@ -33,12 +32,14 @@ export class LoginTestComponent {
   }
 
   //iteraccion con el servicio login.service
+  // Aquí ocurre una Serialización, consiste en convertir un objeto en una
+  // secuencia de bytes para poder almacenarlo o transmitirlo
   onSubmit() {
     if (this.userForm.valid) {
       const {email,password} = this.userForm.value;
       //Por haber definido la variable loginService de tipo LoginService, va a utilizar de esa variable
       //el metodo login
-      this.loginService.login(email,password).subscribe(response => {console.log("Exitoso",response)} )
+      this.loginService.login(email,password).subscribe(response => {console.log("Exitoso",response)});
       //subscribe envia por el protocolo y me reenvie codigo de error http como 404, 401 
       console.log(this.userForm.value);
     } else {

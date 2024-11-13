@@ -1,0 +1,20 @@
+<form [formGroup]="regForm" (ngSubmit)="onSubmit()">
+    <div class="p-fluid">
+        <div class="field">
+            <label for="username">Username</label>
+            <input id="username" pInputText type="text" formControlName="username" placeholder="email@gmail.com">
+            <div class="error" *ngIf="regForm.controls['username'].invalid && regForm.controls['username'].touched">
+                Username is requerid!
+            </div>
+        </div>
+
+        <div class="field">
+            <label for="password">Password</label>
+            <input id="password" pInputText type="text" formControlName="password">
+            <div class="error" *ngIf="regForm.controls['password'].invalid && regForm.controls['password'].touched">
+                Password is requerid!
+            </div>
+        </div>
+        <button pButton type="submit" label="Registrar"></button>
+    </div>
+</form>

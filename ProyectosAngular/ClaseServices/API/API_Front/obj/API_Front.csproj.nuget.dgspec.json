@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Repositorio\\SamuelSalazar222034040\\ProyectosAngular\\ClaseServices\\API\\API_Front\\API_Front.csproj": {}
+    "D:\\UNIVERSITY\\SIXTH SEMESTER\\CG\\SamuelSalazar222034040\\ProyectosAngular\\ClaseServices\\API\\API_Front\\API_Front.csproj": {}
   },
   "projects": {
-    "D:\\Repositorio\\SamuelSalazar222034040\\ProyectosAngular\\ClaseServices\\API\\API_Front\\API_Front.csproj": {
+    "D:\\UNIVERSITY\\SIXTH SEMESTER\\CG\\SamuelSalazar222034040\\ProyectosAngular\\ClaseServices\\API\\API_Front\\API_Front.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Repositorio\\SamuelSalazar222034040\\ProyectosAngular\\ClaseServices\\API\\API_Front\\API_Front.csproj",
+        "projectUniqueName": "D:\\UNIVERSITY\\SIXTH SEMESTER\\CG\\SamuelSalazar222034040\\ProyectosAngular\\ClaseServices\\API\\API_Front\\API_Front.csproj",
         "projectName": "API_Front",
-        "projectPath": "D:\\Repositorio\\SamuelSalazar222034040\\ProyectosAngular\\ClaseServices\\API\\API_Front\\API_Front.csproj",
-        "packagesPath": "C:\\Users\\Udenar\\.nuget\\packages\\",
-        "outputPath": "D:\\Repositorio\\SamuelSalazar222034040\\ProyectosAngular\\ClaseServices\\API\\API_Front\\obj\\",
+        "projectPath": "D:\\UNIVERSITY\\SIXTH SEMESTER\\CG\\SamuelSalazar222034040\\ProyectosAngular\\ClaseServices\\API\\API_Front\\API_Front.csproj",
+        "packagesPath": "C:\\Users\\Samuel Salazar\\.nuget\\packages\\",
+        "outputPath": "D:\\UNIVERSITY\\SIXTH SEMESTER\\CG\\SamuelSalazar222034040\\ProyectosAngular\\ClaseServices\\API\\API_Front\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Udenar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Samuel Salazar\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -50,6 +50,10 @@
               "target": "Package",
               "version": "[2.1.35, )"
             },
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[5.2.2, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
@@ -74,7 +78,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
