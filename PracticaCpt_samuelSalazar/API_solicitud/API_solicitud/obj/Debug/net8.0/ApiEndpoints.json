@@ -1,0 +1,18 @@
+[
+  {
+    "ContainingType": "API_solicitud.Controllers.SolicitudController",
+    "Method": "solicitud",
+    "RelativePath": "api/Solicitud/registrar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "soli",
+        "Type": "API_solicitud.solicitud",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

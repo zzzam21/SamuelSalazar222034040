@@ -1,5 +1,5 @@
 <div [formGroup]="otherForm">
-    <div class="p-field"> 
+    <div class="field"> 
         <label for="textEdit"><b>Detalles de la licencia</b></label>
         <div class="card">
             <p-editor id="textEdit" formControlName="textEdit" [style]="{ height: '320px' , 'max-width':'590px'}">
@@ -26,19 +26,19 @@
         </div>
     </div>
 
-    <div class="p-field"> <!-- Fecha de inicio -->
+    <div class="field"> <!-- Fecha de inicio -->
         <label for="beginDate"><b>Fecha de inicio</b></label>
         <p class="subtitle" >Descripción</p>
-        <p-calendar [style]="{width:'100%'}" [showIcon]="true" [iconDisplay]="'input'"  formControlName="beginDate"/>
+        <p-calendar dateFormat="yy-mm-dd" [showTime]="false" [hourFormat]="'24'" [style]="{width:'100%'}" [showIcon]="true" [iconDisplay]="'input'"  formControlName="beginDate"/>
         <div class="error" *ngIf="otherForm.controls['beginDate'].invalid && otherForm.controls['beginDate'].touched">
             Fecha de inicio necesaria
         </div>
     </div>
 
-    <div class="p-field"> <!-- Fecha de finalización -->
+    <div class="field"> <!-- Fecha de finalización -->
         <label for="endDate"><b>Fecha de finalización</b></label>
         <p class="subtitle" >Descripción</p>
-        <p-calendar [style]="{width:'100%'}" [showIcon]="true" [iconDisplay]="'input'"  formControlName="endDate"/>
+        <p-calendar dateFormat="yy-mm-dd" [showTime]="false" [hourFormat]="'24'" [style]="{width:'100%'}" [showIcon]="true" [iconDisplay]="'input'"  formControlName="endDate"/>
         <div class="error" *ngIf="otherForm.controls['endDate'].invalid && otherForm.controls['endDate'].touched">
             Fecha de finalización necesaria
         </div>
