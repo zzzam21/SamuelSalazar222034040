@@ -7,6 +7,10 @@ import { LoginTestComponent } from './components/login-test/login-test.component
 import { OtherFormComponent } from './components/other-form/other-form.component';
 import { OtherFormCbComponent } from './components/other-form-cb/other-form-cb.component';
 import { MyregisterComponent } from './components/myregister/myregister.component';
+import { UserManagmentComponent } from './components/user-managment/user-managment.component';
+import { DeleteUserComponent } from './components/delete-user/delete-user.component';
+import { ListUsersComponent } from './components/list-users/list-users.component';
+import { FilterUserComponent } from './components/filter-user/filter-user.component';
 
 export const routes: Routes = [
 {
@@ -50,11 +54,23 @@ export const routes: Routes = [
     component: MyregisterComponent
 },
 {
+    path: 'myupdate',
+    component: UserManagmentComponent
+},
+{
+    path: 'mydelete',
+    component: DeleteUserComponent
+},
+{
+    path: 'listusers',
+    component: ListUsersComponent
+},
+{
+    path: 'filteruser',
+    component: FilterUserComponent
+}
+,
+{
 path: '', redirectTo: 'home', pathMatch: 'full'
 }
-
-   
-
-
-
 ];

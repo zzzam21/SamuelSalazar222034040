@@ -67,5 +67,105 @@ namespace API_Front.Controllers
         }
       }
     }
+    // Metodo Update: Nos permitira de forma convencional actualizar los registros de un usuario
+    // pero para ello necesitamos validar que el usuario exista en en la base de datos, por su id por ejemplo
+    [HttpPut("update/{Id}")]
+
+    public IActionResult Update(int Id, [FromBody] Users user)
+    {
+      if (user == null)
+      {
+        return BadRequest("Invalid user data!");
+      }
+
+      using (var connection = new SqlConnection(_connectionString))
+      {
+        var sql = "Update Users set username = @username , password = @password where id=@Id";
+        var rowsAffected = connection.Execute(sql, new {id=Id,user.username, user.password});
+
+        if (rowsAffected > 0)
+        {
+          return Ok("User Update Succesfully!");
+        }
+        else
+        {
+          return NotFound("User not found!");
+        }
+      }
+    }
+
+    [HttpDelete("delete/{Id}")]
+
+    public IActionResult Delete(int Id)
+    {
+      if (Id == 0)
+      {
+        return BadRequest("Invalid Id!");
+      }
+
+      using (var connection = new SqlConnection(_connectionString))
+      {
+        var sql = "delete from Users where id=@Id";
+        var rowsAffected = connection.Execute(sql, new { id = Id });
+
+        if (rowsAffected > 0)
+        {
+          return Ok("User delete Succesfully!");
+        }
+        else
+        { 
+          return NotFound("User not found!");
+        }
+      }
+    }
+
+    [HttpGet("getUsers")]
+
+    public IActionResult GetUsers()
+    {
+      try
+      {
+        using (var connection = new SqlConnection(_connectionString))
+        {
+          var sql = "SELECT * FROM users";
+
+          var users = connection.Query<Users>(sql).ToList();
+
+          if (users == null || users.Count == 0)
+          {
+            return NotFound("No users found!");
+          }
+          return Ok(users);
+        }
+      }
+      catch (Exception ex)
+      {
+        return StatusCode(500, $"Internal several error: {ex.Message}");
+      }
+    }
+
+    [HttpGet("getUsersById/{id}")]
+
+    public IActionResult getUsersById(int id)
+    {
+      try
+      {
+        using (var connection = new SqlConnection(_connectionString))
+        {
+          var sql = "select * FROM users where id = @id";
+          var user = connection.QuerySingleOrDefault<Users>(sql, new { Id = id});
+
+          if (user == null)
+          {
+            return NotFound("No user found!");
+          }
+          return Ok(user);
+        }
+      }
+      catch(Exception ex) 
+      {
+        return StatusCode(500, $"Internal several error: {ex.Message}");
+      }
+    }
   }
 }

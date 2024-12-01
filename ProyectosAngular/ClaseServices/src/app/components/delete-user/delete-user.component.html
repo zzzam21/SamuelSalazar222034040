@@ -1,0 +1,17 @@
+<div class="p-fluid">
+    <h2>Eliminar Usuario</h2>
+    <form [formGroup]="deleteForm" (ngSubmit)="onDelete()">
+        <div class="field">
+            <label for="Id">Id del usuario</label>
+            <input pInputText type="number" formControlName="Id" id="Id" >
+            <div class="error" *ngIf="deleteForm.controls['Id'].invalid && deleteForm.controls['Id'].touched">
+                Id de usuario necesario!
+            </div>
+        </div>
+        <button class="p-button-danger" pButton type="submit" label="Eliminar usuario" [disabled]="deleteForm.invalid"></button>
+    </form>
+    <div class="p-mt-3">
+        <p-message *ngIf="successMessage" severity="success" text="{{successMessage}}"></p-message>
+        <p-message *ngIf="errorMessage" severity="error" text="{{errorMessage}}"></p-message>
+    </div>
+</div>

@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+// Un solo archivo para procesos relacionados
 export class LoginService {
 
   //Url del API almacenada de forma privada
@@ -30,10 +31,30 @@ export class LoginService {
   }
   
   register(username: string, password:string):Observable<any>{
-    const body = {username, password}
+    const body = {username, password};
     return this.http.post(`${this.appiUrl}/register`,{username,password});
   }
   //Los servicios donde solo existe un metodo se llama microservicios.
+  update(Id: string, username:string ,password:string):Observable<any>{
+    const body = {username, password};
+    return this.http.put(`${this.appiUrl}/update/${Id}`,body);
+  }
+  // Put es como update, se utiliza para operaciones que necesitan un alto performance (Mayor velocidad)
+  // Si es put en front-end va a ser update en el backend
+  
+  delete(Id: string):Observable<any>{
+    return this.http.delete(`${this.appiUrl}/delete/${Id}`);
+  }
+  
+  //Obtener todos los usuarios desde el backend
+  // Va a retornar varios valores
+  getUsers():Observable<any[]>{
+    return this.http.get<any[]>(`${this.appiUrl}/getusers`);
+  }
+
+  getUsersById(id: String):Observable<any>{
+    return this.http.get<any>(`${this.appiUrl}/getUsersById/${id}`);
+  }
 }
 
 

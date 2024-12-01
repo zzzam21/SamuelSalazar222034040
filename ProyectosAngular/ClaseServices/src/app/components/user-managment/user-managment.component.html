@@ -1,0 +1,41 @@
+<div class="p-fluid">
+    <form [formGroup]="updateForm" (ngSubmit)="onUpdate()">
+      <h2>Actualizar Usuario</h2>
+  
+      <!-- Campo para ID del Usuario -->
+      <div class="field">
+        <label for="userId">ID del Usuario</label>
+        <input id="userId" type="number" pInputText formControlName="userId" />
+        <div *ngIf="updateForm.controls['userId'].invalid && updateForm.controls['userId'].touched" class="error">
+          ID no válido
+        </div>
+      </div>
+  
+      <!-- Campo para nuevo nombre de usuario -->
+      <div class="field">
+        <label for="username">Nuevo Nombre de Usuario</label>
+        <input id="username" type="text" pInputText formControlName="username" />
+        <div *ngIf="updateForm.controls['username'].invalid && updateForm.controls['username'].touched" class="error">
+          Usuario no válido
+        </div>
+      </div>
+  
+      <!-- Campo para nueva contraseña -->
+      <div class="field">
+        <label for="password">Nueva Contraseña</label>
+        <input id="password" type="password" pPassword formControlName="password" autocomplete="on"/>
+        <div *ngIf="updateForm.controls['password'].invalid && updateForm.controls['password'].touched" class="error">
+          La contraseña debe tener al menos 6 caracteres
+        </div>
+      </div>
+  
+      <!-- Botón para actualizar -->
+      <button pButton type="submit" label="Actualizar Usuario" [disabled]="updateForm.invalid"></button>
+    </form>
+    <!-- Mensajes de éxito o error -->
+    <div class="p-mt-3">
+    <p-message *ngIf="successMessage" severity="success" text="{{ successMessage }}"></p-message>
+    <p-message *ngIf="errorMessage" severity="error" text="{{ errorMessage }}"></p-message>
+  </div>
+</div>    
+    
