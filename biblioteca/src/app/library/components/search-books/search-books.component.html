@@ -1,0 +1,21 @@
+<div class="card">
+    <p-table [value]="books" [style]="{'min-width':'50'}">
+        <th>
+            <tr>Id</tr>
+            <tr>Titulo</tr>
+            <tr>Autor</tr>
+            <tr>Editorial</tr>
+            <tr>Paginas</tr>
+        </th>
+        <ng-template let-book>
+            <td>
+                <tr>{{book.id}}</tr>
+                <tr>{{book.title}}</tr>
+                <tr>{{book.author}}</tr>
+                <tr>{{book.editor}}</tr>
+                <tr>{{book.pages}}</tr>
+            </td>
+        </ng-template>
+        
+    </p-table>
+</div>
