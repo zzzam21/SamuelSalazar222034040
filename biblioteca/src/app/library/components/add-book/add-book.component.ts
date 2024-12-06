@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
+import { BookService } from '../../services/book.service';
 
 @Component({
   selector: 'app-add-book',
@@ -14,7 +15,7 @@ import { InputTextModule } from 'primeng/inputtext';
 export class AddBookComponent {
   booksForm: FormGroup;
 
-  constructor( private fb: FormBuilder){
+  constructor( private fb: FormBuilder, private bookService: BookService){
     
     this.booksForm = this.fb.group(
       {
@@ -31,7 +32,12 @@ export class AddBookComponent {
   onSubmit() {
     if (this.booksForm.valid) 
     {
-      console.log(this.booksForm.value,'Procedimiento Correcto!')
+      const {Id,tittle,author,editorial,pages} = this.booksForm.value;
+      this.bookService.addBook(Id,tittle,author,editorial,pages).subscribe
+      (
+        response => {console.log('Exitoso!',response)}
+      )
+      
     }else
     {
       console.log('Formulario invalido!')

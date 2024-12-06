@@ -30,10 +30,10 @@ export class UpdateBookComponent {
     this.updateForm = this.fb.group(
       {
         Id: ['',Validators.required],
-        tittle: ['',Validators.required],
-        author: ['',Validators.required],
-        editorial: ['',Validators.required],
-        pages: ['',Validators.required],
+        tittle: ['',[Validators.required,Validators.minLength(3)]],
+        author: ['',[Validators.required,Validators.minLength(3)]],
+        editorial: ['',[Validators.required,Validators.minLength(3)]],
+        pages: ['',[Validators.required,Validators.minLength(1)]],
       }
     )
   }

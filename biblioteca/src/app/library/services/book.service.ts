@@ -11,6 +11,11 @@ export class BookService {
 
   appiUrl = "https://localhost:7255/api/books"
 
+  addBook(Id:string ,tittle:string ,author:string ,editorial:string ,pages:string ):Observable<any>{
+    const Body = {Id, tittle, author, editorial, pages};
+    return this.http.post(`${this.appiUrl}/addBook/${Id}`,Body);
+  }
+
   listBooks():Observable<any[]> {
     return this.http.get<any[]>(`${this.appiUrl}/listBooks`)
   }
