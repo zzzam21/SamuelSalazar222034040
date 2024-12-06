@@ -7,9 +7,13 @@ export class BookService {
 
   constructor() {}
 
-  url = ""
+  url = "https://localhost:7255/api"
 
   listBooks () {
     return this.url
+  }
+
+  idBooks () {
+    
   }
 }

@@ -1,0 +1,22 @@
+[
+  {
+    "ContainingType": "API_Library.Controllers.booksController",
+    "Method": "IdBooks",
+    "RelativePath": "api/books/addBooks",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_Library.Controllers.booksController",
+    "Method": "IdBooks",
+    "RelativePath": "api/books/idBooks",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

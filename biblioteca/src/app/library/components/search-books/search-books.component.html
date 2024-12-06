@@ -1,21 +1,22 @@
 <div class="card">
-    <p-table [value]="books" [style]="{'min-width':'50'}">
-        <th>
-            <tr>Id</tr>
-            <tr>Titulo</tr>
-            <tr>Autor</tr>
-            <tr>Editorial</tr>
-            <tr>Paginas</tr>
-        </th>
-        <ng-template let-book>
-            <td>
-                <tr>{{book.id}}</tr>
-                <tr>{{book.title}}</tr>
-                <tr>{{book.author}}</tr>
-                <tr>{{book.editor}}</tr>
-                <tr>{{book.pages}}</tr>
-            </td>
+    <p-table [value]="books" [style]="{'min-width':'50'}" paginator="5">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Id</th>
+                <th>Titulo</th>
+                <th>Autor</th>
+                <th>Editorial</th>
+                <th>Paginas</th>
+            </tr>
         </ng-template>
-        
+        <ng-template pTemplate="body" let-book>
+            <tr>
+                <td>{{book.id}}</td>
+                <td>{{book.title}}</td>
+                <td>{{book.author}}</td>
+                <td>{{book.editor}}</td>
+                <td>{{book.pages}}</td>
+            </tr>
+        </ng-template>
     </p-table>
 </div>
