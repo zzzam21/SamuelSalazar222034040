@@ -12,7 +12,28 @@ namespace API_Library.Controllers
     private readonly string _connectionString = "Server=DESKTOP-C0LD890\\MSSQLSERVER03;DataBase=dbLibrary;User Id=sa;Password=12345678;TrustServerCertificate=true";
 
 
-    [HttpPut("addBooks")]
+    [HttpGet("listBooks")]
+    public IActionResult ListBooks()
+    {
+      try
+      {
+        using (var connection = new SqlConnection(_connectionString))
+        {
+          var sql = "select * from books";
+          var books = connection.Query<books>(sql).ToList();
+
+          if (books == null || books.Count == 0)
+          {
+            return NotFound("No books found!");
+          }
+          return Ok(books);
+        }
+      }
+      catch (Exception ex)
+      {
+        return StatusCode(500, $"Internal several error: {ex.Message}");
+      }
+    }
 
     // Obtener los id de los libros
     [HttpGet("idBooks")]
@@ -30,7 +51,8 @@ namespace API_Library.Controllers
           {
             return NotFound("No books found!");
           }
-          return Ok(ids);
+          
+          return Ok(ids.Select(x => x.Id));
         }
       }
       catch (Exception ex)

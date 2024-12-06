@@ -2,8 +2,8 @@
   {
     "ContainingType": "API_Library.Controllers.booksController",
     "Method": "IdBooks",
-    "RelativePath": "api/books/addBooks",
-    "HttpMethod": "PUT",
+    "RelativePath": "api/books/idBooks",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
@@ -11,8 +11,8 @@
   },
   {
     "ContainingType": "API_Library.Controllers.booksController",
-    "Method": "IdBooks",
-    "RelativePath": "api/books/idBooks",
+    "Method": "ListBooks",
+    "RelativePath": "api/books/listBooks",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

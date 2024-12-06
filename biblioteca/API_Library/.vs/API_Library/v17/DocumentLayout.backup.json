@@ -5,10 +5,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8940EF81-CA0B-4731-977A-A3A0786E2CFE}|API_Library\\API_Library.csproj|d:\\university\\sixth semester\\cg\\samuelsalazar222034040\\biblioteca\\api_library\\api_library\\controllers\\bookscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8940EF81-CA0B-4731-977A-A3A0786E2CFE}|API_Library\\API_Library.csproj|solutionrelative:api_library\\controllers\\bookscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8940EF81-CA0B-4731-977A-A3A0786E2CFE}|API_Library\\API_Library.csproj|d:\\university\\sixth semester\\cg\\samuelsalazar222034040\\biblioteca\\api_library\\api_library\\books.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8940EF81-CA0B-4731-977A-A3A0786E2CFE}|API_Library\\API_Library.csproj|solutionrelative:api_library\\books.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,20 +30,7 @@
               "RelativeToolTip": "API_Library\\Controllers\\booksController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-06T04:32:29.485Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "books.cs",
-              "DocumentMoniker": "D:\\UNIVERSITY\\SIXTH SEMESTER\\CG\\SamuelSalazar222034040\\biblioteca\\API_Library\\API_Library\\books.cs",
-              "RelativeDocumentMoniker": "API_Library\\books.cs",
-              "ToolTip": "D:\\UNIVERSITY\\SIXTH SEMESTER\\CG\\SamuelSalazar222034040\\biblioteca\\API_Library\\API_Library\\books.cs",
-              "RelativeToolTip": "API_Library\\books.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-06T04:29:54.009Z",
+              "WhenOpened": "2024-12-06T17:32:45.131Z",
               "EditorCaption": ""
             }
           ]

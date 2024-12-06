@@ -1,19 +1,21 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookService {
 
-  constructor() {}
+  constructor( private http: HttpClient) {}
 
-  url = "https://localhost:7255/api"
+  appiUrl = "https://localhost:7255/api/books"
 
-  listBooks () {
-    return this.url
+  listBooks():Observable<any[]> {
+    return this.http.get<any[]>(`${this.appiUrl}/listBooks`)
   }
 
-  idBooks () {
-    
+  idBooks():Observable<any[]> {
+    return this.http.get<any[]>(`${this.appiUrl}/idBooks`)
   }
 }

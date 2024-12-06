@@ -18,7 +18,7 @@ export class AddBookComponent {
     
     this.booksForm = this.fb.group(
       {
-        Id: ['',Validators.required], 
+        Id: ['',[Validators.required,Validators.minLength(9),Validators.maxLength(9)]], 
         tittle: ['',Validators.required], 
         author: ['',Validators.required],
         editorial: ['',Validators.required],
