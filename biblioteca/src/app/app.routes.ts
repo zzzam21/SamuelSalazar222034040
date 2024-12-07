@@ -12,8 +12,16 @@ export const routes: Routes = [
         component: AddBookComponent
     },
     {
+        path:'deletebook/:id',
+        component: DelBookComponent
+    },
+    {
         path:'deletebook',
         component: DelBookComponent
+    },
+    {
+        path:'updatebook/:id',
+        component:UpdateBookComponent
     },
     {
         path:'updatebook',

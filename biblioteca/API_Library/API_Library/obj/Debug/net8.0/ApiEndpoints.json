@@ -17,6 +17,22 @@
   },
   {
     "ContainingType": "API_Library.Controllers.booksController",
+    "Method": "DeleteBook",
+    "RelativePath": "api/books/deletebook/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_Library.Controllers.booksController",
     "Method": "IdBooks",
     "RelativePath": "api/books/idBooks",
     "HttpMethod": "GET",
@@ -33,6 +49,22 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_Library.Controllers.booksController",
+    "Method": "GetBookById",
+    "RelativePath": "api/books/searchBook/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {

@@ -137,5 +137,45 @@ namespace API_Library.Controllers
       }
     }
 
+    [HttpDelete("deletebook/{id}")]
+    public IActionResult DeleteBook(string id)
+    {
+      using (var connection = new SqlConnection(_connectionString))
+      {
+        var sql = "DELETE FROM books WHERE Id = @Id";
+        var rowsAffected = connection.Execute(sql, new { Id = id });
+
+        if (rowsAffected > 0)
+        {
+          return Ok("Book deleted successfully");
+        }
+        else
+        {
+          return NotFound("Book not found");
+        }
+      }
+    }
+
+    [HttpGet("searchBook/{id}")]
+    public IActionResult GetBookById(string id)
+    {
+      try
+      {
+        using (var connection = new SqlConnection(_connectionString))
+        {
+          var sql = "SELECT * FROM books WHERE Id = @Id";
+          var book = connection.QuerySingleOrDefault<books>(sql, new { Id = id });
+          if (book == null)
+          {
+            return NotFound($"Book with ID {id} not found");
+          }
+          return Ok(book);
+        }
+      }
+      catch (Exception ex)
+      {
+        return StatusCode(500, $"Internal server error: {ex.Message}");
+      }
+    }
   }
 }

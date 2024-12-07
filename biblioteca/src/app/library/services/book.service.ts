@@ -29,4 +29,12 @@ export class BookService {
   idBooks():Observable<any[]> {
     return this.http.get<any[]>(`${this.appiUrl}/idBooks`);
   }
+  
+  getBookbyId(id: string):Observable<any>{
+    return this.http.get<any>(`${this.appiUrl}/searchBook/${id}`);
+  }
+
+  deleteBook(id: string):Observable<any>{
+    return this.http.delete(`${this.appiUrl}/deletebook/${id}`);
+  }
 }
