@@ -22,6 +22,7 @@ export class UpdateBookComponent {
   //Variables para cargar los id's de los libros
   Ids: any[] = [];
   // Variable para mostrar mensaje de error
+  succesMessage: string = '';
   errorMessage:string = '';
 
   constructor(private fb: FormBuilder,private bookService: BookService){
@@ -47,7 +48,18 @@ export class UpdateBookComponent {
   }
 
   onSubmit():void{
-    
+    if (this.updateForm.valid)
+    {
+      const {Id,tittle,author,editorial,pages} = this.updateForm.value;
+      
+      this.bookService.updateBook(Id,tittle,author,editorial,pages).subscribe
+      ({
+        next: () => {
+          this.succesMessage = "Libro actualizado correctamente!";
+        },
+        error: () => {this.errorMessage = "Error al actualizar información del libro!";}
+      })
+    }
   }
 
 }

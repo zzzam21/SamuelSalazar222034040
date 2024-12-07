@@ -11,8 +11,6 @@ namespace API_Library.Controllers
   {
     private readonly string _connectionString = "Server=DESKTOP-C0LD890\\MSSQLSERVER03;DataBase=dbLibrary;User Id=sa;Password=12345678;TrustServerCertificate=true";
 
-
-
     // Metodo privado para validar que el id del libro no exista
     private books SearchBookVal(string id){
       using (var conection = new SqlConnection(_connectionString))
@@ -55,6 +53,38 @@ namespace API_Library.Controllers
           return StatusCode(409,"Book already exists!");
         }
         
+      }
+    }
+
+    [HttpPut("updateBook/{Id}")]
+
+    public IActionResult UpdateBook(string Id, [FromBody] books book)
+    {
+      if (book == null)
+      {
+        return BadRequest("Invalid book data!");
+      }
+
+      try
+      {
+        using ( var connection = new SqlConnection(_connectionString))
+        {
+          var sql = "update books set tittle = @tittle, author = @author, editorial = @editorial, pages = @pages where id=@Id";
+          var rowsAffected = connection.Execute(sql, new { id = Id,book.tittle, book.author,book.editorial, book.pages});
+
+          if (rowsAffected > 0)
+          {
+            return Ok("Book update succesfully!");
+          }
+          else
+          {
+            return NotFound("Book not found!");
+          }
+        }
+      }
+      catch (Exception ex)
+      {
+        return StatusCode(500, $"Internal several error: {ex.Message}");
       }
     }
     // Obtener una lista de los libros

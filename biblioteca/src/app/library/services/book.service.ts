@@ -9,18 +9,24 @@ export class BookService {
 
   constructor( private http: HttpClient) {}
 
-  appiUrl = "https://localhost:7255/api/books"
+  appiUrl = "https://localhost:7255/api/books";
 
   addBook(Id:string ,tittle:string ,author:string ,editorial:string ,pages:string ):Observable<any>{
     const Body = {Id, tittle, author, editorial, pages};
-    return this.http.post(`${this.appiUrl}/addBook/${Id}`,Body);
+    return this.http.post(`${this.appiUrl}/addBook`,Body);
+  }
+
+  updateBook(Id:string ,tittle:string ,author:string ,editorial:string ,pages:string): Observable<any>{
+    const Body = {tittle, author, editorial, pages};
+    return this.http.put(`${this.appiUrl}/updateBook/${Id}`,Body);
   }
 
   listBooks():Observable<any[]> {
-    return this.http.get<any[]>(`${this.appiUrl}/listBooks`)
+    return this.http.get<any[]>(`${this.appiUrl}/listBooks`);
   }
-
+  
+  // Obtener los ids de los libros
   idBooks():Observable<any[]> {
-    return this.http.get<any[]>(`${this.appiUrl}/idBooks`)
+    return this.http.get<any[]>(`${this.appiUrl}/idBooks`);
   }
 }

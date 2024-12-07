@@ -34,5 +34,26 @@
     "Order": 0,
     "Parameters": [],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_Library.Controllers.booksController",
+    "Method": "UpdateBook",
+    "RelativePath": "api/books/updateBook/{Id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "book",
+        "Type": "API_Library.books",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]
