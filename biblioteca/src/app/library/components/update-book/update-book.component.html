@@ -46,6 +46,10 @@
 
         <div class="field">
             <button pButton label="Actualizar información" [disabled]="updateForm.invalid" class="customizeButton"></button>
+            <div class="p-mt-3">
+                <p-message *ngIf="successMessage" severity="success" text="{{successMessage}}"></p-message>
+                <p-message *ngIf="errMessage" severity="error" text="{{errMessage}}"></p-message>
+            </div>
         </div>
     </form>
 </div>

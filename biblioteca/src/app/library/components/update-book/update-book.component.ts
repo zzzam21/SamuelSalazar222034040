@@ -6,12 +6,14 @@ import { DropdownModule } from 'primeng/dropdown';
 import { CommonModule } from '@angular/common';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
+import { catchError,of } from 'rxjs';
+import { MessageModule } from 'primeng/message';
 
 
 @Component({
   selector: 'app-update-book',
   standalone: true,
-  imports: [FormsModule,DropdownModule,ReactiveFormsModule,CommonModule,InputTextModule,ButtonModule],
+  imports: [FormsModule,DropdownModule,ReactiveFormsModule,CommonModule,InputTextModule,ButtonModule,MessageModule],
   templateUrl: './update-book.component.html',
   styleUrl: './update-book.component.css'
 })
@@ -22,8 +24,8 @@ export class UpdateBookComponent {
   //Variables para cargar los id's de los libros
   Ids: any[] = [];
   // Variable para mostrar mensaje de error
-  succesMessage: string = '';
-  errorMessage:string = '';
+  successMessage: string = '';
+  errMessage:string = '';
 
   constructor(private fb: FormBuilder,private bookService: BookService){
     this.loadIds();
@@ -43,7 +45,7 @@ export class UpdateBookComponent {
   loadIds():void {
     this.bookService.idBooks().subscribe({
       next: (Ids) => { this.Ids = Ids;},
-      error: () => {this.errorMessage = "Error al cargar los id's"}
+      error: () => {this.errMessage = "Error al cargar los id's"}
     })
   }
 
@@ -52,12 +54,26 @@ export class UpdateBookComponent {
     {
       const {Id,tittle,author,editorial,pages} = this.updateForm.value;
       
-      this.bookService.updateBook(Id,tittle,author,editorial,pages).subscribe
+      this.bookService.updateBook(Id,tittle,author,editorial,pages).pipe(
+        catchError((err) => 
+          {
+            if (err.status == 200){
+              return of(null)
+            }
+            throw(err)
+          }
+        )
+      ).subscribe
       ({
         next: () => {
-          this.succesMessage = "Libro actualizado correctamente!";
+          this.successMessage = "Libro actualizado correctamente!";
+          this.errMessage = '';
+          this.updateForm.reset()
         },
-        error: () => {this.errorMessage = "Error al actualizar información del libro!";}
+        error: () => {
+          this.errMessage = "Error al actualizar información del libro!";
+          this.successMessage = '';
+        }
       })
     }
   }

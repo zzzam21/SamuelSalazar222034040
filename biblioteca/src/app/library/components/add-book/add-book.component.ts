@@ -4,16 +4,22 @@ import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, 
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { BookService } from '../../services/book.service';
+import { MessageModule } from 'primeng/message';
+import { catchError,of } from 'rxjs';
+
 
 @Component({
   selector: 'app-add-book',
   standalone: true,
-  imports: [InputTextModule, CommonModule, ReactiveFormsModule,ButtonModule, FormsModule],
+  imports: [InputTextModule, CommonModule, ReactiveFormsModule,ButtonModule, FormsModule, MessageModule],
   templateUrl: './add-book.component.html',
   styleUrl: './add-book.component.css'
 })
 export class AddBookComponent {
+
   booksForm: FormGroup;
+  successMessage: string = '';
+  errMessage: string = '';
 
   constructor( private fb: FormBuilder, private bookService: BookService){
     
@@ -33,14 +39,33 @@ export class AddBookComponent {
     if (this.booksForm.valid) 
     {
       const {Id,tittle,author,editorial,pages} = this.booksForm.value;
-      this.bookService.addBook(Id,tittle,author,editorial,pages).subscribe
-      (
-        response => {console.log('Exitoso!',response)}
+      this.bookService.addBook(Id,tittle,author,editorial,pages).pipe(
+        catchError( (err) => 
+          {
+            if (err.status == 200){
+              return of(null);
+            }
+            throw err;
+          }
+        )
+      ).subscribe
+      ({
+        next:() => 
+          {
+            this.successMessage = 'Libro añadido exitosamente!';
+            this.errMessage = '';
+            this.booksForm.reset()
+          },
+        error:() => 
+          {
+            this.errMessage = 'Libro existente!';
+            this.successMessage = '';
+          }
+        }
       )
-      
     }else
     {
-      console.log('Formulario invalido!')
+      console.log('Formulario invalido!');
     }
   }
 }
