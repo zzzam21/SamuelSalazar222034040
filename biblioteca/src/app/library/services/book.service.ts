@@ -16,8 +16,8 @@ export class BookService {
     return this.http.post(`${this.appiUrl}/addBook`,Body);
   }
 
-  updateBook(Id:string ,tittle:string ,author:string ,editorial:string ,pages:string): Observable<any>{
-    const Body = {tittle, author, editorial, pages};
+  updateBook(Id:string ,tittle:string ,author:string ,editorial:string ,pages:string):Observable<any>{
+    const Body = {Id,tittle, author, editorial, pages};
     return this.http.put(`${this.appiUrl}/updateBook/${Id}`,Body);
   }
 
