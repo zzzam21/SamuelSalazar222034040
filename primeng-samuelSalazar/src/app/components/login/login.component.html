@@ -1,0 +1,23 @@
+<div class="mb-4 p-8">
+    <p-card header="Login">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="field">
+                <label for="email">Email</label>
+                <input id="email" class="w-full" type="text" pInputText formControlName="email" >
+                <div class="error" *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched ">
+                    Email necesario!
+                </div>
+            </div>
+            <div class="field">
+                <label for="password">Password</label>
+                <input pPassword id="password" formControlName="password" class="w-full"/>
+                <div class="error" *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched ">
+                    Contraseña necesaria!
+                </div>
+            </div>
+            
+            <p-button label="SIGN IN" styleClass="w-full" type="submit" [disabled]="loginForm.invalid"/>
+            <p>Not a member? <a href="/register">Registrarse</a> </p>
+        </form>
+    </p-card>    
+</div>

@@ -1,0 +1,37 @@
+<div class="mb-4 p-8">
+    <p-card header="Register">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="field">
+                <label for="fullName">Full name</label>
+                <input id="fullName" class="w-full" type="text" pInputText formControlName="fullName" >
+                <div class="error" *ngIf="registerForm.controls['fullName'].invalid && registerForm.controls['fullName'].touched ">
+                    Nombre necesario!
+                </div>
+            </div>
+            <div class="field">
+                <label for="email">Email</label>
+                <input id="email" class="w-full" type="text" pInputText formControlName="email" >
+                <div class="error" *ngIf="registerForm.controls['email'].invalid && registerForm.controls['email'].touched ">
+                    Email necesario!
+                </div>
+            </div>
+            <div class="field">
+                <label for="password">Password</label>
+                <input pPassword id="password" formControlName="password" class="w-full"/>
+                <div class="error" *ngIf="registerForm.controls['password'].invalid && registerForm.controls['password'].touched ">
+                    Contraseña necesaria!
+                </div>
+            </div>
+            <div class="field">
+                <label for="conPassword">Confirm Password</label>
+                <input pPassword id="conPassword" formControlName="conPassword" class="w-full"/>
+                <div class="error" *ngIf="registerForm.controls['conPassword'].invalid && registerForm.controls['conPassword'].touched ">
+                    Contraseña necesaria!
+                </div>
+            </div>
+            
+            <p-button label="SIGN UP" styleClass="w-full" type="submit" [disabled]="registerForm.invalid"/>
+            <p>Already a member? <a href="/login">Login</a></p>
+        </form>
+    </p-card>    
+</div>
